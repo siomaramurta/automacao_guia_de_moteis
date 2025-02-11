@@ -1,0 +1,170 @@
+{
+	"id": "073261a7-c7c7-437c-9f5e-a8f5fdda1c03",
+	"name": "Case guia de motéis",
+	"timestamp": "2025-02-11T21:44:51.409Z",
+	"collection_id": "13794190-dba4545a-3e57-4ffe-a532-d1d71e05c052",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 8,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-02-11T21:44:50.695Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "2434ad07-924c-4a49-9f16-9e70a385743b",
+			"name": "Ver todos os usuários",
+			"url": "http://localhost:3000/users",
+			"time": 67,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Deve retornar status 200": true,
+				"Deve retornar uma lista de usuários": true
+			},
+			"testPassFailCounts": {
+				"Deve retornar status 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Deve retornar uma lista de usuários": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				67
+			],
+			"allTests": [
+				{
+					"Deve retornar status 200": true,
+					"Deve retornar uma lista de usuários": true
+				}
+			]
+		},
+		{
+			"id": "4d5fbbac-7352-4382-85b5-07e311385f87",
+			"name": "Criar um novo usuário",
+			"url": "http://localhost:3000/users",
+			"time": 60,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Deve retornar status 201 ao criar um usuário": true,
+				"Deve retornar um objeto contendo os dados do usuário criado": true
+			},
+			"testPassFailCounts": {
+				"Deve retornar status 201 ao criar um usuário": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Deve retornar um objeto contendo os dados do usuário criado": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				60
+			],
+			"allTests": [
+				{
+					"Deve retornar status 201 ao criar um usuário": true,
+					"Deve retornar um objeto contendo os dados do usuário criado": true
+				}
+			]
+		},
+		{
+			"id": "68296b0a-ee15-475b-ae55-608550bb7504",
+			"name": "Erro ao criar usuário",
+			"url": "http://localhost:3000/users",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Deve retornar status 400 para erro de validação": true,
+				"Deve retornar uma mensagem de erro apropriada": true
+			},
+			"testPassFailCounts": {
+				"Deve retornar status 400 para erro de validação": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Deve retornar uma mensagem de erro apropriada": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Deve retornar status 400 para erro de validação": true,
+					"Deve retornar uma mensagem de erro apropriada": true
+				}
+			]
+		},
+		{
+			"id": "738d1a7f-4d2a-47b1-bde7-821b3d20430d",
+			"name": "Simulando erro 500",
+			"url": "http://localhost:3000/error",
+			"time": 5,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Deve retornar status 500": true,
+				"Deve conter uma mensagem de erro no corpo da resposta": true
+			},
+			"testPassFailCounts": {
+				"Deve retornar status 500": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Deve conter uma mensagem de erro no corpo da resposta": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Deve retornar status 500": true,
+					"Deve conter uma mensagem de erro no corpo da resposta": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 137,
+	"collection": {
+		"requests": [
+			{
+				"id": "2434ad07-924c-4a49-9f16-9e70a385743b",
+				"method": "GET"
+			},
+			{
+				"id": "4d5fbbac-7352-4382-85b5-07e311385f87",
+				"method": "POST"
+			},
+			{
+				"id": "68296b0a-ee15-475b-ae55-608550bb7504",
+				"method": "POST"
+			},
+			{
+				"id": "738d1a7f-4d2a-47b1-bde7-821b3d20430d",
+				"method": "POST"
+			}
+		]
+	}
+}
