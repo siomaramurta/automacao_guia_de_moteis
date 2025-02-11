@@ -1,0 +1,83 @@
+{
+  
+  "registro_valido": {
+    "nome": "Nome do Usuário Completo",
+    "email": "teste@email.com",
+    "confirmacaoEmail": "teste@email.com",
+    "dataNascimento": "01/01/2000",
+    "cep": "31555-440",
+    "senha": "Teste123",
+    "genero": "F"
+  },
+
+  "registro_data_nascimento_futura": {
+    "nome": "Nome do Usuário Completo",
+    "email": "teste@email.com",
+    "confirmacaoEmail": "teste@email.com",
+    "dataNascimento": "01/01/2125",
+    "cep": "31555-440",
+    "senha": "Teste123",
+    "genero": "M"
+  },
+
+  "registro_usuario_menor": {
+    "nome": "Nome do Usuário Completo",
+    "email": "teste@email.com",
+    "confirmacaoEmail": "teste@email.com",
+    "dataNascimento": "01/01/2014",
+    "cep": "31555-440",
+    "senha": "Teste123",
+    "genero": "F"
+  },
+
+  "registro_cep_invalido": {
+    "nome": "Nome do Usuário Completo",
+    "email": "teste@email.com",
+    "confirmacaoEmail": "teste@email.com",
+    "dataNascimento": "01/01/2000",
+    "cep": "00000-000",
+    "senha": "Teste123",
+    "genero": "M"
+  },
+
+  "registro_email_invalido": {
+    "nome": "Nome do Usuário Completo",
+    "email": "testeemail.com",
+    "confirmacaoEmail": "testeemail.com",
+    "dataNascimento": "01/01/2000",
+    "cep": "31555-440",
+    "senha": "Teste123",
+    "genero": "F"
+  },
+
+  "registro_confirmacao_email_diferente": {
+    "nome": "Nome do Usuário Completo",
+    "email": "teste@email.com",
+    "confirmacaoEmail": "testeemail@email.com",
+    "dataNascimento": "01/01/2000",
+    "cep": "31555-440",
+    "senha": "Teste123",
+    "genero": "M"
+  },
+
+  "registro_senha_invalida": {
+    "nome": "Nome do Usuário Completo",
+    "email": "teste@email.com",
+    "confirmacaoEmail": "teste@email.com",
+    "dataNascimento": "01/01/2000",
+    "cep": "31555-440",
+    "senha": "12345",
+    "genero": "F"
+  },
+
+  "registro_em_branco": {
+    "nome": "             ",
+    "email": "             ",
+    "confirmacaoEmail": "             ",
+    "dataNascimento": "             ",
+    "cep": "             ",
+    "senha": "             ",
+    "genero": "M"
+  }
+  
+}

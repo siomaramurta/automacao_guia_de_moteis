@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "dba4545a-3e57-4ffe-a532-d1d71e05c052",
+		"name": "Case guia de motéis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13794190",
+		"_collection_link": "https://www.postman.com/estudosdasiomara/workspace/guia-de-motis-case/collection/13794190-dba4545a-3e57-4ffe-a532-d1d71e05c052?action=share&source=collection_link&creator=13794190"
+	},
+	"item": [
+		{
+			"name": "Ver todos os usuários",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deve retornar status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Deve retornar uma lista de usuários\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"    pm.expect(jsonData.length).to.be.greaterThan(0);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar um novo usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deve retornar status 201 ao criar um usuário\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Deve retornar um objeto contendo os dados do usuário criado\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('object');\r",
+							"    pm.expect(jsonData).to.have.property('id');\r",
+							"    pm.expect(jsonData).to.have.property('name');\r",
+							"    pm.expect(jsonData).to.have.property('username');\r",
+							"    pm.expect(jsonData).to.have.property('email');\r",
+							"\r",
+							"\t\tif (jsonData.address) {\r",
+							"        pm.expect(jsonData.address).to.be.an('object');\r",
+							"        pm.expect(jsonData.address).to.have.property('street');\r",
+							"        pm.expect(jsonData.address).to.have.property('suite');\r",
+							"        pm.expect(jsonData.address).to.have.property('city');\r",
+							"        pm.expect(jsonData.address).to.have.property('zipcode');\r",
+							"\r",
+							"        if (jsonData.address.geo) {\r",
+							"            pm.expect(jsonData.address.geo).to.be.an('object');\r",
+							"            pm.expect(jsonData.address.geo).to.have.property('lat');\r",
+							"            pm.expect(jsonData.address.geo).to.have.property('lng');\r",
+							"        }\r",
+							"    }\r",
+							"\r",
+							"    if (jsonData.phone) {\r",
+							"        pm.expect(jsonData.phone).to.be.a('string');\r",
+							"    }\r",
+							"\r",
+							"    if (jsonData.website) {\r",
+							"        pm.expect(jsonData.website).to.be.a('string');\r",
+							"    }\r",
+							"\r",
+							"    if (jsonData.company) {\r",
+							"        pm.expect(jsonData.company).to.be.an('object');\r",
+							"        pm.expect(jsonData.company).to.have.property('name');\r",
+							"        pm.expect(jsonData.company).to.have.property('catchPhrase');\r",
+							"        pm.expect(jsonData.company).to.have.property('bs');\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Siomara Murta\",\r\n        \"username\": \"siomaramurta\",\r\n        \"email\": \"siomaramurta@gmail.com\",\r\n        \"address\": {\r\n            \"street\": \"Street\",\r\n            \"suite\": \"Suite\",\r\n            \"city\": \"City\",\r\n            \"zipcode\": \"00000-000\",\r\n            \"geo\": {\r\n                \"lat\": \"-38.2386\",\r\n                \"lng\": \"57.2232\"\r\n            }\r\n        },\r\n        \"phone\": \"55 31 99999-9999\",\r\n        \"website\": \"siomara.net\",\r\n        \"company\": {\r\n            \"name\": \"Company\",\r\n            \"catchPhrase\": \"Centralized empowering task-force\",\r\n            \"bs\": \"QA consulting\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Erro ao criar usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deve retornar status 400 para erro de validação\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Deve retornar uma mensagem de erro apropriada\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property('error');\r",
+							"    pm.expect(jsonData.error).to.include(\"Todos os campos\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\r\n    \"name\": \"Leanne Graham\",\r\n    \"username\": \"Bret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simulando erro 500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Deve retornar status 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Deve conter uma mensagem de erro no corpo da resposta\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property('error');\r",
+							"    pm.expect(jsonData.error).to.include(\"Erro interno\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/error",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"error"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
