@@ -73,18 +73,6 @@ Exemplo de resposta:
 OS testes em cypress tem como objetivo validar a qualidade de um formulário de cadastro de usuário, garantindo que ele funcione corretamente.
 O projeto segue o padrão Page Object para organizar os testes de UI, facilitando a manutenção e a legibilidade do código. A estrutura do projeto é a seguinte:
 
-cypress/
-  ├── e2e/
-  │   ├── cadastro/
-  │   │   ├── cadastro.spec.cy.js
-  │   │   └── cadastroPage.js
-  ├── fixtures/
-  │   └── cadastro_usuarios.json
-  ├── support/
-  │   └── commands.js
-  └── cypress.config.js
-
-Arquivos e Pastas:
 - cypress/e2e/cadastro/cadastro.spec.cy.js: Contém os testes automatizados para o formulário de cadastro de usuário.
 - cypress/e2e/cadastro/cadastroPage.js: Implementa a classe CadastroPage, que encapsula as interações com a página de cadastro.
 - cypress/fixtures/cadastro_usuarios.json: Contém os dados de teste para os diferentes cenários de cadastro de usuário.
